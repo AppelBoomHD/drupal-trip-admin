@@ -1,0 +1,7 @@
+trip_admin.dashboard:
+  path: "/dashboard"
+  defaults:
+    _controller: 'Drupal\trip_admin\Controller\TripAdminController::dashboard'
+    _title: "Welcome to the dashboard"
+  requirements:
+    _permission: "access content"
