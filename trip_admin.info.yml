@@ -1,0 +1,5 @@
+name: Trip Administration
+type: module
+description: "Module that makes tracking and viewing trips easier"
+package: custom
+core_version_requirement: ^10
