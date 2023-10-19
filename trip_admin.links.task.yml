@@ -1,0 +1,18 @@
+entity.trip_admin_trip.view:
+  title: 'View'
+  route_name: entity.trip_admin_trip.canonical
+  base_route: entity.trip_admin_trip.canonical
+entity.trip_admin_trip.edit_form:
+  title: 'Edit'
+  route_name: entity.trip_admin_trip.edit_form
+  base_route: entity.trip_admin_trip.canonical
+entity.trip_admin_trip.delete_form:
+  title: 'Delete'
+  route_name: entity.trip_admin_trip.delete_form
+  base_route: entity.trip_admin_trip.canonical
+  weight: 10
+entity.trip_admin_trip.collection:
+  title: 'Trips'
+  route_name: entity.trip_admin_trip.collection
+  base_route: system.admin_content
+  weight: 10

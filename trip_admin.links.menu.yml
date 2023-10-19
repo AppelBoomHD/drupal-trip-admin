@@ -1,0 +1,5 @@
+entity.trip_admin_trip.collection:
+  title: 'Trips'
+  description: 'List of trips.'
+  route_name: entity.trip_admin_trip.collection
+  parent: system.admin_content

@@ -1,0 +1,10 @@
+entity.trip_admin_trip.edit_form:
+  route_name: entity.trip_admin_trip.edit_form
+  group: trip_admin_trip
+  title: 'Edit'
+
+entity.trip_admin_trip.delete_form:
+  route_name: entity.trip_admin_trip.delete_form
+  group: trip_admin_trip
+  title: 'Delete'
+  weight: 10

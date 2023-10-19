@@ -1,0 +1,11 @@
+administer trip_admin_trip:
+  title: 'Administer trips'
+  restrict access: true
+view trip_admin_trip:
+  title: 'View trip'
+edit trip_admin_trip:
+  title: 'Edit trip'
+delete trip_admin_trip:
+  title: 'Delete trip'
+create trip_admin_trip:
+  title: 'Create trip'
