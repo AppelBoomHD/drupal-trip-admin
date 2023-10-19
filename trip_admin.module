@@ -17,6 +17,7 @@ function trip_admin_theme(): array
   return [
     'trip_admin_trip' => ['render element' => 'elements'],
     'trip_admin_stop' => ['render element' => 'elements'],
+    'trip_admin_order' => ['render element' => 'elements'],
   ];
 }
 
@@ -52,6 +53,25 @@ function template_preprocess_trip_admin_trip(array &$variables): void
  *   - attributes: HTML attributes for the containing element.
  */
 function template_preprocess_trip_admin_stop(array &$variables): void
+{
+  $variables['view_mode'] = $variables['elements']['#view_mode'];
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
+}
+
+/**
+ * Prepares variables for order templates.
+ *
+ * Default template: trip-admin-order.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - elements: An associative array containing the order information and any
+ *     fields attached to the entity.
+ *   - attributes: HTML attributes for the containing element.
+ */
+function template_preprocess_trip_admin_order(array &$variables): void
 {
   $variables['view_mode'] = $variables['elements']['#view_mode'];
   foreach (Element::children($variables['elements']) as $key) {

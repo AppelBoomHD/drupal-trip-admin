@@ -35,3 +35,22 @@ entity.trip_admin_stop.collection:
   route_name: entity.trip_admin_stop.collection
   base_route: system.admin_content
   weight: 10
+
+entity.trip_admin_order.view:
+  title: 'View'
+  route_name: entity.trip_admin_order.canonical
+  base_route: entity.trip_admin_order.canonical
+entity.trip_admin_order.edit_form:
+  title: 'Edit'
+  route_name: entity.trip_admin_order.edit_form
+  base_route: entity.trip_admin_order.canonical
+entity.trip_admin_order.delete_form:
+  title: 'Delete'
+  route_name: entity.trip_admin_order.delete_form
+  base_route: entity.trip_admin_order.canonical
+  weight: 10
+entity.trip_admin_order.collection:
+  title: 'Orders'
+  route_name: entity.trip_admin_order.collection
+  base_route: system.admin_content
+  weight: 10

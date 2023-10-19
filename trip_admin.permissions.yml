@@ -21,3 +21,15 @@ delete trip_admin_stop:
   title: 'Delete stop'
 create trip_admin_stop:
   title: 'Create stop'
+
+administer trip_admin_order:
+  title: 'Administer orders'
+  restrict access: true
+view trip_admin_order:
+  title: 'View order'
+edit trip_admin_order:
+  title: 'Edit order'
+delete trip_admin_order:
+  title: 'Delete order'
+create trip_admin_order:
+  title: 'Create order'

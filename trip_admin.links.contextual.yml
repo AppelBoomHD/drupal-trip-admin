@@ -19,3 +19,14 @@ entity.trip_admin_stop.delete_form:
   group: trip_admin_stop
   title: 'Delete'
   weight: 10
+
+entity.trip_admin_order.edit_form:
+  route_name: entity.trip_admin_order.edit_form
+  group: trip_admin_order
+  title: 'Edit'
+
+entity.trip_admin_order.delete_form:
+  route_name: entity.trip_admin_order.delete_form
+  group: trip_admin_order
+  title: 'Delete'
+  weight: 10

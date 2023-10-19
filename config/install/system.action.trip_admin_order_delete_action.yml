@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - trip_admin
+id: trip_admin_order_delete_action
+label: 'Delete orders'
+type: trip_admin_order
+plugin: entity:delete_action:trip_admin_order
+configuration: {  }
