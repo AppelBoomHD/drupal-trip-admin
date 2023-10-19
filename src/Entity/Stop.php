@@ -124,6 +124,26 @@ final class Stop extends ContentEntityBase implements StopInterface
         'weight' => 0,
       ]);
 
+    $fields['order_id'] = BaseFieldDefinition::create('entity_reference')
+      ->setLabel(t('Order'))
+      ->setDescription(t('The order associated with this stop.'))
+      ->setSetting('target_type', 'trip_admin_order')
+      ->setDisplayOptions('form', [
+        'type' => 'entity_reference_autocomplete',
+        'settings' => [
+          'match_operator' => 'CONTAINS',
+          'size' => 60,
+          'placeholder' => 'Order number',
+        ],
+        'weight' => 15,
+      ])
+      ->setDisplayOptions('view', [
+        'label' => 'above',
+        'type' => 'text_default',
+        'weight' => 15,
+      ])
+      ->setRequired(TRUE);
+
     $fields['created'] = BaseFieldDefinition::create('created')
       ->setLabel(t('Created'))
       ->setDescription(t('The time that the stop was created.'))
