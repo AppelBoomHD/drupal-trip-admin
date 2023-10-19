@@ -3,3 +3,9 @@ trip_admin_trip.add_form:
   route_name: entity.trip_admin_trip.add_form
   appears_on:
     - entity.trip_admin_trip.collection
+
+trip_admin_stop.add_form:
+  title: 'Add stop'
+  route_name: entity.trip_admin_stop.add_form
+  appears_on:
+    - entity.trip_admin_stop.collection

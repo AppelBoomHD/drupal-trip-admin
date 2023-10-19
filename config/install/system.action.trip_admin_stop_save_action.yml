@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - trip_admin
+id: trip_admin_stop_save_action
+label: 'Save stops'
+type: trip_admin_stop
+plugin: entity:save_action:trip_admin_stop
+configuration: {  }

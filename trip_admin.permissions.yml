@@ -9,3 +9,15 @@ delete trip_admin_trip:
   title: 'Delete trip'
 create trip_admin_trip:
   title: 'Create trip'
+
+administer trip_admin_stop:
+  title: 'Administer stops'
+  restrict access: true
+view trip_admin_stop:
+  title: 'View stop'
+edit trip_admin_stop:
+  title: 'Edit stop'
+delete trip_admin_stop:
+  title: 'Delete stop'
+create trip_admin_stop:
+  title: 'Create stop'

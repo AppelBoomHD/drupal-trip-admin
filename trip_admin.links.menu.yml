@@ -3,3 +3,9 @@ entity.trip_admin_trip.collection:
   description: 'List of trips.'
   route_name: entity.trip_admin_trip.collection
   parent: system.admin_content
+
+entity.trip_admin_stop.collection:
+  title: 'Stops'
+  description: 'List of stops.'
+  route_name: entity.trip_admin_stop.collection
+  parent: system.admin_content

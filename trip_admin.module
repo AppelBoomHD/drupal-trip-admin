@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types=1);
 
 /**
  * @file
@@ -10,9 +12,11 @@ use Drupal\Core\Render\Element;
 /**
  * Implements hook_theme().
  */
-function trip_admin_theme(): array {
+function trip_admin_theme(): array
+{
   return [
     'trip_admin_trip' => ['render element' => 'elements'],
+    'trip_admin_stop' => ['render element' => 'elements'],
   ];
 }
 
@@ -27,10 +31,30 @@ function trip_admin_theme(): array {
  *     fields attached to the entity.
  *   - attributes: HTML attributes for the containing element.
  */
-function template_preprocess_trip_admin_trip(array &$variables): void {
+function template_preprocess_trip_admin_trip(array &$variables): void
+{
   $variables['view_mode'] = $variables['elements']['#view_mode'];
   foreach (Element::children($variables['elements']) as $key) {
     $variables['content'][$key] = $variables['elements'][$key];
   }
 }
 
+
+/**
+ * Prepares variables for stop templates.
+ *
+ * Default template: trip-admin-stop.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - elements: An associative array containing the stop information and any
+ *     fields attached to the entity.
+ *   - attributes: HTML attributes for the containing element.
+ */
+function template_preprocess_trip_admin_stop(array &$variables): void
+{
+  $variables['view_mode'] = $variables['elements']['#view_mode'];
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
+}
