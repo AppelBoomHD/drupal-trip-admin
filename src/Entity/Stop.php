@@ -91,6 +91,7 @@ final class Stop extends ContentEntityBase implements StopInterface
         'label' => 'above',
         'weight' => 10,
       ])
+      ->setPropertyConstraints('value', ['Regex' => ['pattern' => '/^[1-9][0-9]{3} ?(?!sa|sd|ss)[a-z]{2}$/i', 'message' => 'The postal code must be in the format 1234 AB']])
       ->setRequired(TRUE);
 
     $fields['house_number'] = BaseFieldDefinition::create('string')
@@ -116,7 +117,7 @@ final class Stop extends ContentEntityBase implements StopInterface
         'settings' => [
           'display_label' => FALSE,
         ],
-        'weight' => 0,
+        'weight' => 20,
       ])
       ->setDisplayOptions('view', [
         'type' => 'boolean',
