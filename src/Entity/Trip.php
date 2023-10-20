@@ -53,6 +53,9 @@ use Drupal\Core\Field\FieldStorageDefinitionInterface;
  *     "delete-form" = "/trip/{trip_admin_trip}/delete",
  *     "delete-multiple-form" = "/admin/content/trip/delete-multiple",
  *   },
+ *   constraints = {
+ *     "TripAdministrationTripCompleted" = {}
+ *   }
  * )
  */
 final class Trip extends ContentEntityBase implements TripInterface
