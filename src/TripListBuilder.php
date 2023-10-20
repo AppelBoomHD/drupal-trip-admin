@@ -20,6 +20,7 @@ final class TripListBuilder extends EntityListBuilder
   {
     $header['id'] = $this->t('ID');
     $header['start'] = $this->t('Start time');
+    $header['stops'] = $this->t('Stops');
     return $header + parent::buildHeader();
   }
 
@@ -31,6 +32,7 @@ final class TripListBuilder extends EntityListBuilder
     /** @var \Drupal\trip_admin\TripInterface $entity */
     $row['id'] = $entity->toLink();
     $row['start']['data'] = $entity->get('start')->view(['label' => 'hidden']);
+    $row['stops']['data'] = $entity->get('stops')->view(['label' => 'hidden']);
     return $row + parent::buildRow($entity);
   }
 }

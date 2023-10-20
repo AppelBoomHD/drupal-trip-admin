@@ -9,6 +9,7 @@ use Drupal\Core\Entity\EntityChangedTrait;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\trip_admin\TripInterface;
+use Drupal\Core\Field\FieldStorageDefinitionInterface;
 
 /**
  * Defines the trip entity class.
@@ -102,6 +103,27 @@ final class Trip extends ContentEntityBase implements TripInterface
         'type' => 'datetime_timestamp',
         'weight' => 20,
       ])
+      ->setRequired(TRUE);
+
+    $fields['stops'] = BaseFieldDefinition::create('entity_reference')
+      ->setLabel(t('Stops'))
+      ->setDescription(t('The stops associated with this trip.'))
+      ->setSetting('target_type', 'trip_admin_stop')
+      ->setDisplayOptions('form', [
+        'type' => 'entity_reference_autocomplete',
+        'settings' => [
+          'match_operator' => 'CONTAINS',
+          'size' => 60,
+          'placeholder' => 'Stop number',
+        ],
+        'weight' => 15,
+      ])
+      ->setDisplayOptions('view', [
+        'label' => 'above',
+        'type' => 'entity_reference_label',
+        'weight' => 15,
+      ])
+      ->setCardinality(FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED)
       ->setRequired(TRUE);
 
     $fields['created'] = BaseFieldDefinition::create('created')
