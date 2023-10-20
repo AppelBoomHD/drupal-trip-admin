@@ -139,7 +139,7 @@ final class Stop extends ContentEntityBase implements StopInterface
       ])
       ->setDisplayOptions('view', [
         'label' => 'above',
-        'type' => 'text_default',
+        'type' => 'entity_reference_label',
         'weight' => 15,
       ])
       ->setRequired(TRUE);
