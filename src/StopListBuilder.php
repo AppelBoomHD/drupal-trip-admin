@@ -10,7 +10,7 @@ use Drupal\Core\Entity\EntityListBuilder;
 /**
  * Provides a list controller for the stop entity type.
  */
-final class StopListBuilder extends EntityListBuilder
+final class StopListBuilder extends SortableListBuilder
 {
 
   /**
@@ -18,11 +18,31 @@ final class StopListBuilder extends EntityListBuilder
    */
   public function buildHeader(): array
   {
-    $header['id'] = $this->t('ID');
-    $header['postal_code'] = $this->t('Postal code');
-    $header['house_number'] = $this->t('House number');
-    $header['delivered'] = $this->t('Status');
-    $header['order_id'] = $this->t('Order');
+    $header['id'] = [
+      'data' => $this->t('ID'),
+      'field' => 'id',
+      'specifier' => 'id',
+    ];
+    $header['postal_code'] = [
+      'data' => $this->t('Postal code'),
+      'field' => 'postal_code',
+      'specifier' => 'postal_code',
+    ];
+    $header['house_number'] = [
+      'data' => $this->t('House number'),
+      'field' => 'house_number',
+      'specifier' => 'house_number',
+    ];
+    $header['delivered'] = [
+      'data' => $this->t('Status'),
+      'field' => 'delivered',
+      'specifier' => 'delivered',
+    ];
+    $header['order_id'] = [
+      'data' => $this->t('Order'),
+      'field' => 'order_id',
+      'specifier' => 'order_id',
+    ];
     return $header + parent::buildHeader();
   }
 

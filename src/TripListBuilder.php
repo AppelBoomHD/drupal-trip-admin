@@ -10,7 +10,7 @@ use Drupal\Core\Entity\EntityListBuilder;
 /**
  * Provides a list controller for the trip entity type.
  */
-final class TripListBuilder extends EntityListBuilder
+final class TripListBuilder extends SortableListBuilder
 {
 
   /**
@@ -18,9 +18,21 @@ final class TripListBuilder extends EntityListBuilder
    */
   public function buildHeader(): array
   {
-    $header['id'] = $this->t('ID');
-    $header['start'] = $this->t('Start time');
-    $header['stops'] = $this->t('Stops');
+    $header['id'] = [
+      'data' => $this->t('ID'),
+      'field' => 'id',
+      'specifier' => 'id',
+    ];
+    $header['start'] = [
+      'data' => $this->t('Start time'),
+      'field' => 'start',
+      'specifier' => 'start',
+    ];
+    $header['stops'] = [
+      'data' => $this->t('Stops'),
+      'field' => 'stops',
+      'specifier' => 'stops',
+    ];
     return $header + parent::buildHeader();
   }
 

@@ -10,15 +10,18 @@ use Drupal\Core\Entity\EntityListBuilder;
 /**
  * Provides a list controller for the order entity type.
  */
-final class OrderListBuilder extends EntityListBuilder
+final class OrderListBuilder extends SortableListBuilder
 {
-
   /**
    * {@inheritdoc}
    */
   public function buildHeader(): array
   {
-    $header['id'] = $this->t('Order number');
+    $header['id'] = array(
+      'data' => $this->t('Order number'),
+      'field' => 'id',
+      'specifier' => 'id',
+    );
     return $header + parent::buildHeader();
   }
 
