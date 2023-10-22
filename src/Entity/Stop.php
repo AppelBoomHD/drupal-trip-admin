@@ -67,8 +67,8 @@ final class Stop extends ContentEntityBase implements StopInterface
     $fields = parent::baseFieldDefinitions($entity_type);
 
     $fields['id'] = BaseFieldDefinition::create('integer')
-      ->setLabel(t('Stop'))
-      ->setDescription(t('The stop ID.'))
+      ->setLabel(t('Stop number'))
+      ->setDescription(t('The stop number.'))
       ->setDisplayOptions('view', [
         'type' => 'text_default',
         'label' => 'inline',

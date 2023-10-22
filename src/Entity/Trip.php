@@ -71,8 +71,8 @@ final class Trip extends ContentEntityBase implements TripInterface
     $fields = parent::baseFieldDefinitions($entity_type);
 
     $fields['id'] = BaseFieldDefinition::create('integer')
-      ->setLabel(t('Trip'))
-      ->setDescription(t('The trip ID.'))
+      ->setLabel(t('Trip number'))
+      ->setDescription(t('The trip number.'))
       ->setDisplayOptions('view', [
         'type' => 'text_default',
         'label' => 'inline',

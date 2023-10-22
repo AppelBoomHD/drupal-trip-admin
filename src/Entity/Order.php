@@ -68,7 +68,7 @@ final class Order extends ContentEntityBase implements OrderInterface
     $fields = parent::baseFieldDefinitions($entity_type);
 
     $fields['id'] = BaseFieldDefinition::create('string')
-      ->setLabel(t('Order'))
+      ->setLabel(t('Order number'))
       ->setDescription(t('The order number.'))
       ->setDisplayOptions('form', [
         'type' => 'text',

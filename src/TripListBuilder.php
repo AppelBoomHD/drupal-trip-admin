@@ -19,7 +19,7 @@ final class TripListBuilder extends SortableListBuilder
   public function buildHeader(): array
   {
     $header['id'] = [
-      'data' => $this->t('ID'),
+      'data' => $this->t('Trip number'),
       'field' => 'id',
       'specifier' => 'id',
     ];

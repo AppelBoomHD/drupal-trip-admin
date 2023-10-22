@@ -19,7 +19,7 @@ final class StopListBuilder extends SortableListBuilder
   public function buildHeader(): array
   {
     $header['id'] = [
-      'data' => $this->t('ID'),
+      'data' => $this->t('Stop number'),
       'field' => 'id',
       'specifier' => 'id',
     ];
