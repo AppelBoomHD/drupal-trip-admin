@@ -30,15 +30,8 @@ final class TripAdministrationTripCompletedConstraintValidator extends Constrain
     /** @var \Drupal\trip_admin\TripInterface $entity */
     $entity = \Drupal::entityTypeManager()->getStorage($value->getEntityTypeId())->load($value->id());
 
-    // check if all currently linked stops are delivered
-    foreach ($entity->get('stops') as $stop) {
-      if (!empty($stop->entity) && $stop->entity->get('delivered')->value == 0) {
-        return;
-      }
-    }
-
-    // check if new stop is added to the trip
-    if ($value->get('stops')->count() >= $entity->get('stops')->count()) {
+    // check if trip is completed and new stop is added to the trip
+    if ($entity->get('completed') && $value->get('stops')->count() >= $entity->get('stops')->count()) {
       $this->context->buildViolation($constraint->message)
         ->atPath('stops')
         ->addViolation();

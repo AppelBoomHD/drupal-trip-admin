@@ -28,6 +28,11 @@ final class TripListBuilder extends SortableListBuilder
       'field' => 'start',
       'specifier' => 'start',
     ];
+    $header['completed'] = [
+      'data' => $this->t('Status'),
+      'field' => 'completed',
+      'specifier' => 'completed',
+    ];
     $header['stops'] = [
       'data' => $this->t('Stops'),
       'field' => 'stops',
@@ -44,6 +49,7 @@ final class TripListBuilder extends SortableListBuilder
     /** @var \Drupal\trip_admin\TripInterface $entity */
     $row['id'] = $entity->toLink();
     $row['start']['data'] = $entity->get('start')->view(['label' => 'hidden']);
+    $row['completed'] = $entity->get('completed')->value ? $this->t('Completed') : $this->t('Not completed');
     $row['stops']['data'] = $entity->get('stops')->view(['label' => 'hidden']);
     return $row + parent::buildRow($entity);
   }

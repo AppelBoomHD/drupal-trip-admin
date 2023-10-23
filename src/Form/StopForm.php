@@ -57,6 +57,18 @@ final class StopForm extends ContentEntityForm
 
     $stop->set('postal_code', $postal_code);
 
+    $trips = \Drupal::entityTypeManager()->getStorage('trip_admin_trip')->loadMultiple();
+
+    foreach ($trips as $trip) {
+      foreach ($trip->get('stops') as $s) {
+        if (!empty($s->entity) && $s->entity->id() == $stop->id() && $s->entity->get('delivered')->value != $form_state->getValue('delivered')) {
+          $trip->set('completed', $form_state->getValue('delivered'));
+          $trip->save();
+          continue;
+        }
+      }
+    }
+
     return $stop;
   }
 }

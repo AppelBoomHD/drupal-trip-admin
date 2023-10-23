@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types=1);
 
 namespace Drupal\trip_admin\Form;
 
@@ -8,12 +10,14 @@ use Drupal\Core\Form\FormStateInterface;
 /**
  * Form controller for the trip entity edit forms.
  */
-final class TripForm extends ContentEntityForm {
+final class TripForm extends ContentEntityForm
+{
 
   /**
    * {@inheritdoc}
    */
-  public function save(array $form, FormStateInterface $form_state): int {
+  public function save(array $form, FormStateInterface $form_state): int
+  {
     $result = parent::save($form, $form_state);
 
     $message_args = ['%label' => $this->entity->toLink()->toString()];
@@ -42,4 +46,17 @@ final class TripForm extends ContentEntityForm {
     return $result;
   }
 
+  public function buildEntity(array $form, FormStateInterface $form_state)
+  {
+    $trip = parent::buildEntity($form, $form_state);
+
+    foreach ($trip->get('stops') as $stop) {
+      if (!empty($stop->entity) && $stop->entity->get('delivered')->value == 0) {
+        return $trip;
+      }
+    }
+
+    $trip->set('completed', 1);
+    return $trip;
+  }
 }

@@ -129,6 +129,16 @@ final class Trip extends ContentEntityBase implements TripInterface
       ->setCardinality(FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED)
       ->setRequired(TRUE);
 
+    $fields['completed'] = BaseFieldDefinition::create('boolean')
+      ->setLabel(t('Status'))
+      ->setDefaultValue(FALSE)
+      ->setSettings(['on_label' => 'Completed', 'off_label' => 'Not completed'])
+      ->setDisplayOptions('view', [
+        'type' => 'boolean',
+        'label' => 'above',
+        'weight' => 0,
+      ]);
+
     $fields['created'] = BaseFieldDefinition::create('created')
       ->setLabel(t('Created at'))
       ->setDescription(t('The time that the trip was created.'))
