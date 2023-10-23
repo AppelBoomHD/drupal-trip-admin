@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types=1);
 
 namespace Drupal\trip_admin\Form;
 
@@ -8,12 +10,14 @@ use Drupal\Core\Form\FormStateInterface;
 /**
  * Form controller for the stop entity edit forms.
  */
-final class StopForm extends ContentEntityForm {
+final class StopForm extends ContentEntityForm
+{
 
   /**
    * {@inheritdoc}
    */
-  public function save(array $form, FormStateInterface $form_state): int {
+  public function save(array $form, FormStateInterface $form_state): int
+  {
     $result = parent::save($form, $form_state);
 
     $message_args = ['%label' => $this->entity->toLink()->toString()];
@@ -42,4 +46,17 @@ final class StopForm extends ContentEntityForm {
     return $result;
   }
 
+  public function buildEntity(array $form, FormStateInterface $form_state)
+  {
+    $stop = parent::buildEntity($form, $form_state);
+    $postal_code = strtoupper($form_state->getValue('postal_code')[0]['value']);
+
+    if (strlen($postal_code) === 6) {
+      $postal_code = substr_replace($postal_code, ' ', 4, 0);
+    }
+
+    $stop->set('postal_code', $postal_code);
+
+    return $stop;
+  }
 }
