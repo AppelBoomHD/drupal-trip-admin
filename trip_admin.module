@@ -38,6 +38,7 @@ function template_preprocess_trip_admin_trip(array &$variables): void
   foreach (Element::children($variables['elements']) as $key) {
     $variables['content'][$key] = $variables['elements'][$key];
   }
+  $variables['entity'] = $variables['elements']['#trip_admin_trip'];
 }
 
 

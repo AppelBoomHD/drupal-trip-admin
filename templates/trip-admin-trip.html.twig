@@ -13,13 +13,39 @@
  * @see template_preprocess_trip_admin_trip()
  */
 #}
-<article{{ attributes }}>
-  {% if view_mode != 'full' %}
-    {{ title_prefix }}
-    {{ title_suffix }}
-  {% endif %}
-  {% if content %}
-    {{- content -}}
-  {% endif %}
-  <p>{{title_prefix}}</p>
+{{ attach_library('trip_admin/trip_admin_custom_css') }}
+<article{{attributes}}>
+	{% if view_mode != 'full' %}
+		{{ title_prefix }}
+		{{ title_suffix }}
+	{% endif %}
+	{% if content %}
+		{{ content.description }}
+		<div class="field">
+			<div class="field__label">Stops</div>
+			<div class="field__item stop">
+				{% for stop in entity.stops %}
+					<div class="stop">
+						<div class="dot dot--state-{{stop.entity.delivered.value ? 'delivered' : 'not-delivered'}}"></div>
+						<a href="/stop/{{ stop.entity.id() }}">
+							Stop
+							{{ stop.entity.id() }}
+						</a>
+						(Postal:
+						{{ stop.entity.postal_code.value }}, House nr.:
+						{{ stop.entity.house_number.value }})
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+		{{ content.start }}
+		<div class="field">
+			<div class="field__label">Status</div>
+			<div class="field__item status--state-{{entity.completed.value ? 'completed' : 'not-completed'}}">
+				{{ entity.completed.value ? 'Completed' : 'Not completed' }}
+			</div>
+		</div>
+		{{ content.created }}
+		{{ content.changed }}
+	{% endif %}
 </article>

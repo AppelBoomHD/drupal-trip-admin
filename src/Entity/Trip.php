@@ -123,7 +123,7 @@ final class Trip extends ContentEntityBase implements TripInterface
       ])
       ->setDisplayOptions('view', [
         'label' => 'above',
-        'type' => 'entity_reference_label',
+        'type' => 'entity_reference_entity_view',
         'weight' => 15,
       ])
       ->setCardinality(FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED)
