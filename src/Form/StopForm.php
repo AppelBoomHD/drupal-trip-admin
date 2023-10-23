@@ -57,6 +57,15 @@ final class StopForm extends ContentEntityForm
 
     $stop->set('postal_code', $postal_code);
 
+    if ($form_state->getValue('delivered')) {
+      $blog = \Drupal::entityTypeManager()->getStorage('node')->create([
+        'type' => 'blog',
+        'title' => 'Stop ' . $stop->label() . ' was delivered! 🚀',
+        'body' => 'Stop ' . $stop->label() . ' was delivered!',
+      ]);
+      $blog->save();
+    }
+
     $trips = \Drupal::entityTypeManager()->getStorage('trip_admin_trip')->loadMultiple();
 
     foreach ($trips as $trip) {
@@ -64,6 +73,15 @@ final class StopForm extends ContentEntityForm
         if (!empty($s->entity) && $s->entity->id() == $stop->id() && $s->entity->get('delivered')->value != $form_state->getValue('delivered')) {
           $trip->set('completed', $form_state->getValue('delivered'));
           $trip->save();
+
+          if ($form_state->getValue('delivered')) {
+            $blog = \Drupal::entityTypeManager()->getStorage('node')->create([
+              'type' => 'blog',
+              'title' => 'Trip ' . $trip->label() . ' was completed! 🚀',
+              'body' => 'Trip ' . $trip->label() . ' was completed! All stops have been delivered!',
+            ]);
+            $blog->save();
+          }
           continue;
         }
       }
