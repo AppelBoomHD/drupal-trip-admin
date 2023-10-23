@@ -25,7 +25,7 @@
 			<div class="field__label">Stops</div>
 			<div class="field__item stop">
 				{% for stop in entity.stops %}
-					<div class="stop">
+					<div class="list-item">
 						<div class="dot dot--state-{{stop.entity.delivered.value ? 'delivered' : 'not-delivered'}}"></div>
 						<a href="/stop/{{ stop.entity.id() }}">
 							Stop
@@ -41,7 +41,7 @@
 		{{ content.start }}
 		<div class="field">
 			<div class="field__label">Status</div>
-			<div class="field__item status--state-{{entity.completed.value ? 'completed' : 'not-completed'}}">
+			<div class="field__item text-{{entity.completed.value ? 'green' : 'red'}}">
 				{{ entity.completed.value ? 'Completed' : 'Not completed' }}
 			</div>
 		</div>

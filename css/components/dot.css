@@ -1,9 +1,3 @@
-.stop {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
 .dot {
   border-radius: 100%;
   border-style: solid;
@@ -19,12 +13,4 @@
 
 .dot--state-not-delivered {
   background-color: red;
-}
-
-.status--state-completed {
-  color: green;
-}
-
-.status--state-not-completed {
-  color: red;
 }
